@@ -13,11 +13,11 @@ hist(x1+x2) # -> norm ~N(mu1 + mu2, sigma1^2 + sigma2^2)
 y = replicate(1000,mean(rnorm(10,173,7)))
 hist(y)
 
-# sigma/sqrt(n) -> ñòàíäàðòíà ãðåøêà SE(x)
+# sigma/sqrt(n)
 
-# (X1 - mu1)/sigma1 ~ N(0,1) ñòàíäàðòèçèðàíå
-# P(-||- < q(0.95)) = 0.95 îò ñòîéíîñòèòå
-# îò -q äî q -> 0.90
+# (X1 - mu1)/sigma1 ~ N(0,1) 
+# P(-||- < q(0.95)) = 0.95 
+# q -> 0.90
 
 # (X1 - mu1)/(sigma1/sqrt(n)) ~ N(0,1)
 # P(x/-(sigma/sqrt(n))*q < mu < x/+(sigma/sqrt(n))*q) = 0.90
@@ -65,8 +65,8 @@ x=c(10.0, 13.6, 13.2, 11.6, 12.5, 14.2, 14.9, 14.5, 13.4, 8.6, 11.5, 16.0, 14.2,
 # (2.1) ? x~N(mu,sigma^2) -> hist,lines(density)/boxplot/qqnorm,qqline/
                           # shapiro.test(x), p.value >= 0.05 -> it's normal
 
-# àêî å íîðìàëíî -> t.test(x)
-# ako íå å íîðìàëíî -> wilcox.test(x,conf.int=T,conf.level=0.95)
+# t.test(x)
+# wilcox.test(x,conf.int=T,conf.level=0.95)
 hist(x,probability=T)
 lines(density(x))
 
@@ -85,7 +85,7 @@ t.test(x, conf.level = 0.95)
 install.packages("UsingR")
 library("UsingR")
 
-# à
+# 
 hist(rat, probability = T)
 lines(density(rat))
 
@@ -98,7 +98,7 @@ shapiro.test(rat)
 
 t.test(rat, conf.level = 0.96)
 
-# á
+# 
 length(exec.pay)
 
 hist(exec.pay, probability = T)
