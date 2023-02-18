@@ -18,11 +18,11 @@
  # keep(x, function(y), y>4) # filter
  # map(vector, ~.x^2)
  # cumsum(x) # 1,7,9,3 -> 1,8,17,20
- # cummean(x) -> ñðåäíî íà ïúðâè åëåì., ñðåäíî íà ïúðâèòå äâà, ñðåäíî íà ïúðâèòå òðè è ò.í.
+ # cummean(x)
  
  replicate(1000,sum(sample(c("B","W"),size=100,replace=TRUE)=="B"))
  
- # detect(x,~.x>7) # âðúùà ïúðâèÿ åëåìåíò, êîéòî èçïúëíÿâà íÿêàêâî óñëîâèå
+ # detect(x,~.x>7)
  
  # detect(x,~.x>7)
  # detectIndex(c(4,9,1))
