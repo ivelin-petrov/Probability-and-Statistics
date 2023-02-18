@@ -1,19 +1,11 @@
-# линейна регресия
-
 # y(i) = b(1).x(i) + eps(i) + b(0)
 # eps(i) ~ N(0,sigma^2)
-
-# y:- печалба, x:- реклама
-# y^ (шапка)
 
 # argmin p(y^(->), y(->)) = p(b(0)^ + b(1)^.x(->), y(->))^2
 # y^(->) = b(0)^(->) + b(1)^(->).x(->)
 
 # loss = (yi - (b0 + b1.xi))^2
 # cost = SUM(loss) = SUM(yi - (b0 + b1.xi))^2
-
-# цел: да напаснем максимално добре линията между x и y
-# производни: d/b0(cost), d/b1(cost)
 
 # b0^ = y/ - b1^.x/
 # b1^ = (SUM((xi - x/).(yi - y/))/(SUM(xi - x/)^2)
@@ -33,10 +25,9 @@ people_df = data.frame(
 plot(people_df)
 
 model = lm(formula = pulse ~ age, data = people_df)
-# y = pulse, x = age - описваме pulse чрез age
+
 model_summary = summary(model)
 
-# твърди се, че b0 = 220
 # t = (b0^ - 220)/sd(b0^) ~ T(n-2)
 
 # t = (b1^ - (-1))/sd(b1^) ~ T(n-2)
@@ -48,8 +39,7 @@ beta0_se = model_summary$coefficients[1,2]
 
 t = (beta0_est - beta0_hyp) / beta0_se
 
-pt(t,n-2) # отхв. нулевата хипотеза b0 = 220
-# за ст-ти -3,-2 и т.н., взимаме лицето надолу
+pt(t,n-2)
 
 # y = b0 + b1.x
 beta1_est = model$coefficients[2] # == model_summary$coefficients[2,1]
@@ -59,15 +49,14 @@ beta1_se = model_summary$coefficients[2,2]
 t2 = (beta1_est - beta1_hyp) / beta1_se
 
 hist(rt(1000,n-2),probability = TRUE)
-pt(t2,n-2,lower.tail = FALSE) # отхв. нулевата хипотеза b1 = -1
-# за ст-ти 2,3 и т.н. -> lower.tail = FALSE, взимаме лицето нагоре
+pt(t2,n-2,lower.tail = FALSE)
 
 # t = (b1^ - 0)/sd(b0^)
-# summary(model) -> H0: няма линейна връзка между x и y
-# pvalue - четвърта колона
+# summary(model) -> H0
+# pvalue
 
-# RSE = sqrt(SUM(yi-yi^)^2) - по-малко за по-добър модел
-# R-squared - колкото по-близо до 1, толкова по-добър модел
+# RSE = sqrt(SUM(yi-yi^)^2)
+# R-squared
 # Adjusted R-squared
 
 # y^(x=30) = b0^ + b1^.30
