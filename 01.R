@@ -8,7 +8,6 @@
 # function
 
 # filter, map
-# Âåêòîðè
 # c -> combine
 
 x = c(1,2,3,4,5) # ctrl + enter
@@ -27,22 +26,18 @@ z[-3]
 z[c(1,3,8)]
 z[-c(1,3,8)]
 
-#áóëåâè ìàñêè
 bools = z > 4
 z[bools] # filter
 
 bools = z %% 2 == 0
 z[bools] # filter even num
 
-# èíäåêñèòå çàïî÷âàò îò 1, à íå îò 0
-# ðåäèöè
 s = 1:100
 # ?seq
 s2 = seq(from = 1, to = 100, by = 1)
 #s2 = seq(1,100,1)
 s3 = seq(from = 1, to = 100, length.out = 300)
 
-# çàäà÷à îò êîíòðîëíî
 n = 100
 x = 3.4
 # sum of x^i, for i -> 1-n
@@ -50,7 +45,6 @@ sum(x^(1:n))
 
 f = function(n,x){sum(x^(1:n))}
 
-# info çà ïðîìåíëèâèòå
 str("Nikola")
 typeof("Nikola")
 length("Nikola") # 1 -> vector
@@ -67,7 +61,6 @@ View(m)
 m[2,3]
 m[-2, c(1,3)]
 
-# ñîðòèðàíå è íàðåäáà
 v = c(6,7,3,2,1,5,7,9,4)
 sort(v)
 v[order(v)]
@@ -79,7 +72,6 @@ m = matrix(v, nrow=3, ncol=3, byrow = TRUE)
 index_first_col_sorted = order(m[,1])
 m[index_first_col_sorted, ]
 
-# èìåíóâàíå íà ìàòðèöà
 colnames(m) = c("a","b","c")
 rownames(m) = c("a2","b2","c2")
 
