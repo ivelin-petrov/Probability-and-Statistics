@@ -2,7 +2,6 @@
 
 # y1,...,yn ~ Exp(lambda)
 # (y/ - E(y))/(sqrt(var(y)/n)) ~ N(0,1), n > 30 
-# öåíòðàëíà ãðàíè÷íà òåîðåìà
 
 # var(y) = 1/(lambda^2)
 # E(y) = 1/lambda
@@ -14,7 +13,7 @@ f = function(k=100){
 
 hist(replicate(1000,f()), probability=T)
 
-# õèïîòåçè
+#
 
 #       two.sided     greater     less   
 # Ho := mu? == mu  | mu? <= mu | mu? >= mu 
@@ -36,7 +35,7 @@ g = function(n=10,h=5){
   t = (m-h)/(s/sqrt(n)) # T(n-1)
   
   pvalue=pt(t,n-1)
-  print(2*pvalue) # < alpha -> îòõâúðëÿìå õèïîòåçàòà çà mu=5
+  print(2*pvalue) # < alpha -> mu=5
   
   t.test(x,mu=h,alternative="two.sided")
 }
@@ -44,9 +43,9 @@ g = function(n=10,h=5){
 g(100)
 g(30,3)
 
-# n<30 è x~N(mu,sigma^2) => t.test
-# n>30 è x~not~N(mu,sigma^2) => t.test
-# n<30 è x~not~N(mu,sigma^2) => wilcox.test(x,mu=3,alternative="two.sided")
+# n<30  x~N(mu,sigma^2) => t.test
+# n>30  x~not~N(mu,sigma^2) => t.test
+# n<30  x~not~N(mu,sigma^2) => wilcox.test(x,mu=3,alternative="two.sided")
 
 # task2
 
@@ -60,8 +59,8 @@ t.test(vacation, mu=24, alternative = "less")
 
 # task3
 
-prop.test(42,100,0.5,alternative="less") # alpha > 0.0669 -> íå îòõ.
-prop.test(420,1000,0.5,alternative="less") # ïîíå 50% çà p -> "less", çà äà ñå îïèòàìå äà îòõ. õèïîòåçàòà
+prop.test(42,100,0.5,alternative="less") # alpha > 0.0669
+prop.test(420,1000,0.5,alternative="less")
 
 # task4
 
@@ -78,7 +77,7 @@ qqline(x)
 
 shapiro.test(x) 
 # pvalue = 0.05 => 0.51 !< pvalue
-wilcox.test(x,mu=5,alternative="greater") # íå îòõâ. õèïîòåçàòà
+wilcox.test(x,mu=5,alternative="greater")
 
 # task5
 
@@ -91,8 +90,8 @@ x=cancer$stomach
 hist(x)
 
 # not norm, n<30
-wilcox.test(x,mu=100,alternative="less") #Ho -> æèâåÿò ïîâå÷å îò 100 äíè, alt. -> "less"
-wilcox.test(x,mu=100,alternative="greater") #Ho -> æèâåÿò ïî-ìàëêî îò 100 äíè, alt. -> "greater"
+wilcox.test(x,mu=100,alternative="less") #Ho -> "less"
+wilcox.test(x,mu=100,alternative="greater") #Ho -> "greater"
 
 # task6
 
@@ -108,6 +107,6 @@ x=sum(male_smoking != "Never", na.rm = T)
 
 # n>30
 prop.test(28,118,p=0.2,alternative="greater")
-# Ho := p<=0,2 (ïóøà÷è), Ha := p>0.2
+# Ho := p<=0,2, Ha := p>0.2
 
 
