@@ -1,4 +1,4 @@
-#
+###
 
 f = function(n = 100){
   dice = sample(1:6, size = n, replace = TRUE)
@@ -14,7 +14,7 @@ sum(rep1 < 0.05)
 sum(rep2 < 0.05)
 sum(rep3 < 0.05)
 
-#
+###
 
 g = function(n = 15){
   data = runif(n,min=5,max=12)
@@ -26,7 +26,7 @@ rep2 = replicate(10000,g(25))
 rep3 = replicate(10000,g(50))
 rep4 = replicate(10000,g(90))
 
-#
+###
 
 sum(rep1 < 0.05)
 sum(rep2 < 0.05)
@@ -38,7 +38,7 @@ sum(rep2 >= 0.05)
 sum(rep3 >= 0.05)
 sum(rep4 >= 0.05)
 
-#
+###
 
 h = function(n=30,case=1){
   x = sample(1:10,size=n,replace=TRUE)
