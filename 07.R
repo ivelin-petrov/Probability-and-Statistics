@@ -13,11 +13,11 @@ hist(x1+x2) # -> norm ~N(mu1 + mu2, sigma1^2 + sigma2^2)
 y = replicate(1000,mean(rnorm(10,173,7)))
 hist(y)
 
-# sigma/sqrt(n) -> стандартна грешка SE(x)
+# sigma/sqrt(n) -> Г±ГІГ Г­Г¤Г Г°ГІГ­Г  ГЈГ°ГҐГёГЄГ  SE(x)
 
-# (X1 - mu1)/sigma1 ~ N(0,1) стандартизиране
-# P(-||- < q(0.95)) = 0.95 от стойностите
-# от -q до q -> 0.90
+# (X1 - mu1)/sigma1 ~ N(0,1) Г±ГІГ Г­Г¤Г Г°ГІГЁГ§ГЁГ°Г Г­ГҐ
+# P(-||- < q(0.95)) = 0.95 Г®ГІ Г±ГІГ®Г©Г­Г®Г±ГІГЁГІГҐ
+# Г®ГІ -q Г¤Г® q -> 0.90
 
 # (X1 - mu1)/(sigma1/sqrt(n)) ~ N(0,1)
 # P(x/-(sigma/sqrt(n))*q < mu < x/+(sigma/sqrt(n))*q) = 0.90
@@ -65,8 +65,8 @@ x=c(10.0, 13.6, 13.2, 11.6, 12.5, 14.2, 14.9, 14.5, 13.4, 8.6, 11.5, 16.0, 14.2,
 # (2.1) ? x~N(mu,sigma^2) -> hist,lines(density)/boxplot/qqnorm,qqline/
                           # shapiro.test(x), p.value >= 0.05 -> it's normal
 
-# ако е нормално -> t.test(x)
-# ako не е нормално -> wilcox.test(x,conf.int=T,conf.level=0.95)
+# Г ГЄГ® ГҐ Г­Г®Г°Г¬Г Г«Г­Г® -> t.test(x)
+# ako Г­ГҐ ГҐ Г­Г®Г°Г¬Г Г«Г­Г® -> wilcox.test(x,conf.int=T,conf.level=0.95)
 hist(x,probability=T)
 lines(density(x))
 
@@ -85,7 +85,7 @@ t.test(x, conf.level = 0.95)
 install.packages("UsingR")
 library("UsingR")
 
-# а
+# Г 
 hist(rat, probability = T)
 lines(density(rat))
 
@@ -98,7 +98,7 @@ shapiro.test(rat)
 
 t.test(rat, conf.level = 0.96)
 
-# б
+# ГЎ
 length(exec.pay)
 
 hist(exec.pay, probability = T)
