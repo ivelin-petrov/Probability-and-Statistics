@@ -2,13 +2,13 @@
 # y1, ..., yn
 # Ho: E(x) = E(y)
 
-# shapiro.test -> Ho - да бъде нормално разпределение
+# shapiro.test -> Ho - Г¤Г  ГЎГєГ¤ГҐ Г­Г®Г°Г¬Г Г«Г­Г® Г°Г Г§ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГҐ
 
-# t.test(x,y,paired = T,var.equal = F), n<30 -> идват от нормално разпределение
+# t.test(x,y,paired = T,var.equal = F), n<30 -> ГЁГ¤ГўГ ГІ Г®ГІ Г­Г®Г°Г¬Г Г«Г­Г® Г°Г Г§ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГҐ
 # (x/ - E(x))/(sqrt(var(y)/n)) ~ N(0,1), n>30
 # n<30 and not norm -> wilcox.test(-||-)
 
-# pvalue < e^(-7) -> отхвърляме. Ho: E(x) == E(y) -> Ha: E(x) =/= E(y)
+# pvalue < e^(-7) -> Г®ГІГµГўГєГ°Г«ГїГ¬ГҐ. Ho: E(x) == E(y) -> Ha: E(x) =/= E(y)
 
 # paired=T x1(-t->)x1', ..., xn(-t->)xn'
 
@@ -27,9 +27,9 @@ shapiro.test(x) # pvalue -> norm
 shapiro.test(y) # pvalue -> norm
 
 t.test(x,y,paired=F,var.equal=T)
-# може и wilcox.test
+# Г¬Г®Г¦ГҐ ГЁ wilcox.test
 wilcox.test(x,y,paired=F,var.equal=T)
-# приемаме, че са еднакви (не отхв. Ho)
+# ГЇГ°ГЁГҐГ¬Г Г¬ГҐ, Г·ГҐ Г±Г  ГҐГ¤Г­Г ГЄГўГЁ (Г­ГҐ Г®ГІГµГў. Ho)
 
 # task2
 
@@ -51,18 +51,18 @@ hist(y)
 qqnorm(y)
 qqline(y)
 
-shapiro.test(x) # не е много голямо => може и двата теста
+shapiro.test(x) # Г­ГҐ ГҐ Г¬Г­Г®ГЈГ® ГЈГ®Г«ГїГ¬Г® => Г¬Г®Г¦ГҐ ГЁ Г¤ГўГ ГІГ  ГІГҐГ±ГІГ 
 shapiro.test(y)
 
 t.test(x,y,paired=F,var.equal=T,alternative="less") 
-# за alpha = 0.10 -> pvalue > alpha => не отхвърляме Ho
+# Г§Г  alpha = 0.10 -> pvalue > alpha => Г­ГҐ Г®ГІГµГўГєГ°Г«ГїГ¬ГҐ Ho
 wilcox.test(x,y,paired=F,var.equal=T,alternative="less") 
 # Ho: medicine >= placebo
-# Ha: x боледуват по-малко дни от у => "less"
+# Ha: x ГЎГ®Г«ГҐГ¤ГіГўГ ГІ ГЇГ®-Г¬Г Г«ГЄГ® Г¤Г­ГЁ Г®ГІ Гі => "less"
 
-# alpha = 0.05 -> попадат данни <= 0.05
-# pvalue < alpha => отхв. хип., защото попадаме в областта с данни от alpha
-# test статистиката е малка => отхв. хипотезата
+# alpha = 0.05 -> ГЇГ®ГЇГ Г¤Г ГІ Г¤Г Г­Г­ГЁ <= 0.05
+# pvalue < alpha => Г®ГІГµГў. ГµГЁГЇ., Г§Г Г№Г®ГІГ® ГЇГ®ГЇГ Г¤Г Г¬ГҐ Гў Г®ГЎГ«Г Г±ГІГІГ  Г± Г¤Г Г­Г­ГЁ Г®ГІ alpha
+# test Г±ГІГ ГІГЁГ±ГІГЁГЄГ ГІГ  ГҐ Г¬Г Г«ГЄГ  => Г®ГІГµГў. ГµГЁГЇГ®ГІГҐГ§Г ГІГ 
 
 # task4
 
