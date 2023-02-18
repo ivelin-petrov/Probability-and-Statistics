@@ -3,13 +3,9 @@
 
 # argmax(b0,b1)(PROD(p(xi;b0,b1)))
 
-# метод на максимално правдоподобие
-# класификация
 # glm(Y ~ X, data)
 
-# разделяне на данните
-# чертаем графика въз основа на 80% от данните
-# 20% от данните -> търсим accuracy = SUM(i=1,n)(yi^ = yi)
+# accuracy = SUM(i=1,n)(yi^ = yi)
 
 #task1
 
@@ -26,7 +22,7 @@ test_set = students_df[-train_idx, ] # 20%
 mean(students_df$admit == 1)
 
 model = glm(admit ~ gre + gpa + rank, data = train_set)
-summary(model) # AIC -> min (информ. загуба)
+summary(model) # AIC
 
 result_prob = predict.glm(model, newdata = test_set)
 result = 0 + (result_prob > 0.5)
