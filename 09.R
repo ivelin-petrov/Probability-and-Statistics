@@ -2,13 +2,13 @@
 # y1, ..., yn
 # Ho: E(x) = E(y)
 
-# shapiro.test -> Ho - äà áúäå íîðìàëíî ðàçïðåäåëåíèå
+# shapiro.test -> Ho
 
-# t.test(x,y,paired = T,var.equal = F), n<30 -> èäâàò îò íîðìàëíî ðàçïðåäåëåíèå
+# t.test(x,y,paired = T,var.equal = F), n<30
 # (x/ - E(x))/(sqrt(var(y)/n)) ~ N(0,1), n>30
 # n<30 and not norm -> wilcox.test(-||-)
 
-# pvalue < e^(-7) -> îòõâúðëÿìå. Ho: E(x) == E(y) -> Ha: E(x) =/= E(y)
+# pvalue < e^(-7) -> Ho: E(x) == E(y) -> Ha: E(x) =/= E(y)
 
 # paired=T x1(-t->)x1', ..., xn(-t->)xn'
 
@@ -27,9 +27,8 @@ shapiro.test(x) # pvalue -> norm
 shapiro.test(y) # pvalue -> norm
 
 t.test(x,y,paired=F,var.equal=T)
-# ìîæå è wilcox.test
+# wilcox.test
 wilcox.test(x,y,paired=F,var.equal=T)
-# ïðèåìàìå, ÷å ñà åäíàêâè (íå îòõâ. Ho)
 
 # task2
 
@@ -51,18 +50,18 @@ hist(y)
 qqnorm(y)
 qqline(y)
 
-shapiro.test(x) # íå å ìíîãî ãîëÿìî => ìîæå è äâàòà òåñòà
+shapiro.test(x)
 shapiro.test(y)
 
 t.test(x,y,paired=F,var.equal=T,alternative="less") 
-# çà alpha = 0.10 -> pvalue > alpha => íå îòõâúðëÿìå Ho
+# alpha = 0.10 -> pvalue > alpha => Ho
 wilcox.test(x,y,paired=F,var.equal=T,alternative="less") 
 # Ho: medicine >= placebo
-# Ha: x áîëåäóâàò ïî-ìàëêî äíè îò ó => "less"
+# Ha: x => "less"
 
-# alpha = 0.05 -> ïîïàäàò äàííè <= 0.05
-# pvalue < alpha => îòõâ. õèï., çàùîòî ïîïàäàìå â îáëàñòòà ñ äàííè îò alpha
-# test ñòàòèñòèêàòà å ìàëêà => îòõâ. õèïîòåçàòà
+# alpha = 0.05 -> <= 0.05
+# pvalue < alpha => alpha
+# test
 
 # task4
 
