@@ -13,7 +13,7 @@
 # y ~ b0 + b1*x'
 # lm(y ~ x^2)
 
-# lm(y ~ x1+x2,...), (score,hours,iq) -> равнина
+# lm(y ~ x1+x2,...), (score,hours,iq)
 # plot, scatterplot
 
 # summary(model) -> R^2, R^2 adj.
@@ -26,7 +26,7 @@ plot(mtcars)
 plot(mtcars$disp, mtcars$mpg)
 cor(mtcars$disp, mtcars$mpg)
 
-init = lm(mpg ~ 1, data=mtcars) # празен
+init = lm(mpg ~ 1, data=mtcars)
 summary(init)
 #for(var in vars\{mpg}) {m = lm(y~var), if...}
 
@@ -54,7 +54,6 @@ height_cm_df = 2.54 * height_df
 plot(height_cm_df)
 
 model = lm(Height ~ dadheight, data = height_cm_df)
-# за 1 см увеличение на вис. на бащата имаме 0.49 см ув. на вис. на детето
 
 plot(height_cm_df$dadheight, height_cm_df$Height)
 plot(height_cm_df$momheight, height_cm_df$Height)
@@ -83,8 +82,6 @@ model_summary$adj.r.squared
 # y1,y2,...,yn / y1',y2',...,yn'
 # ei' = yi' - yi/\
 
-# напасваме модел, търсим по-малка грешка
-
 # train_index = sample(1:n, size = n*0.8, replace = T)
 # train_set = df[train_index, ]
 # test_set = df[-train_index, ]
@@ -95,12 +92,10 @@ data_df = data.frame(
   dist = c(253,337,395,451,495,534,574)
 )
 
-# описваме dist спрямо height
-# y - зависима, x - независима
 model = lm(dist ~ I(1/height), data=data_df) 
 # x^2, I(1/x), log(x), sqrt(x)
 model = lm(dist ~ log(height), data=data_df) # R^2 adj. = 0.9973
-# за 1*log(height) -> 139.3 dist
+# Г§Г  1*log(height) -> 139.3 dist
 summary(model)
 
 plot(data_df$height, data_df$dist)
