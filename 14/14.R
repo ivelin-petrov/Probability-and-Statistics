@@ -2,18 +2,17 @@
 # t.test(x,mu=17,alt = " ") greater/less
 
 # E(x9) = 17
-# проверяваме дали е нормално
+
 # t.test, wilcox.test
 
-# x9, y9 -> 2 извадки
+# x9, y9
 # E(x9) = E(y9)
-# проверяваме дали са нормални
-# t.test - за нормално, wilcox.test - иначе
+
+# t.test, wilcox.test
 # t.test(x, mu=..., alt=" ", paired = T)
 
 # x20(1), x20(2), x20(3), ..., x20(k)
-# първо проверяваме дали са нормално
-# #? норм.
+
 # oneway.test(x~group,data=df)
 # function -> stack
 # x/val -> ... | group/index -> 1.1...1, 2.2...2, ..., k.k...k
@@ -24,24 +23,23 @@ sy=1/n*sum(y) # == mean(y)
 
 vy=1/(n-1)*sum((y-sy)^2) # == var(y)
 
-# средно y/ = 1/n*SUM(yi)
-# дисперсия var(у) = 1/(n-1)*SUM(i=1,n)(yi-y/)^2
-# Ho: b1=b2=...=bk=0 (моделът няма сила)
+# y/ = 1/n*SUM(yi)
+# var(Гі) = 1/(n-1)*SUM(i=1,n)(yi-y/)^2
+# Ho: b1=b2=...=bk=0 
 
-# f=(SSR/p)/(RSS/(n-p-1)) ~ разпред. F(p,n-p-1)
-# деление на 2 статистики с хи квадрат разпред.
-# F-statistic от summary
+# f=(SSR/p)/(RSS/(n-p-1)) ~> F(p,n-p-1)
+
+# F-statistic summary
 
 # n=nrow(mtcars)
-# p=2 (предиктори)
+# p=2
 # pf(F-statistic value, p, n-p-1, lower.tail = FALSE)
 
 # anova test
 # y ~ bo + b1.x1 + ... + bk.xk
-# Ho: b1=b2=...=bk=0 (y не се влияе от групите)
+# Ho: b1=b2=...=bk=0
 
 # oneway.test()
-# проверяваме дали една от статистиките се различава значително от останалите по средно (Е)
 
 #task1
 
@@ -49,7 +47,6 @@ y = data.frame(p1=c(5,4,4,6,4,6,3,3,4,5),
                p2=c(3,2,4,5,3,4,3,4,2,4),
                p3=c(4,6,4,2,4,5,5,3,6,4))
 
-# проверяваме дали са norm
 shapiro.test(y$p1)
 shapiro.test(y$p2)
 shapiro.test(y$p3)
@@ -57,13 +54,11 @@ shapiro.test(y$p3)
 sy=stack(y)
 # alpha=0.05
 oneway.test(values ~ ind, data=sy)
-# не отхв. нулевата хипотеза
 
 model = lm(values ~ ind, data = sy)
 anova(model)
 # anova(lm(values ~ ind, data = sy))
 
-# ако данните не идват от нормално разпред.
 # kruskal.test(-||-)
 
 #task2
@@ -113,14 +108,14 @@ kruskal.test(response ~ drug, data = results)
 # manova(cbind(y1,y2) ~ group,data=...)
 # summary.aov()
 
-iris # данни
+iris # Г¤Г Г­Г­ГЁ
 
 m=manova(cbind(Sepal.Length, Sepal.Width) ~ Species, data=iris)
 summary.aov(m)
 
 
 
-### преговор
+###
 
 # x=c(A,B,C...,A,D,A,B)
 # y=c(a,a,b,...,c,a,d)
@@ -132,34 +127,31 @@ prop.table(table(x,y))
 prop.table(table(x,y),2)
 
 #t=table(y), a=7,b=3,c=2
-#chisq.test(t) -> default за p = c(1/3,1/3,1/3) - с еднакво prob.
+#chisq.test(t) -> default p = c(1/3,1/3,1/3)
 #chisq.test(t, p=c(0.3,0.2,0.5))
 
-#chisq.test(x,y) -> тестваме за независимост
+#chisq.test(x,y)
 # \/x,y P(X=x/\Y=y)=P(X=x)*P(Y=y)
-# Ho: тестваме за независимост на x и y
+# Ho
 
 # x,group
-# boxplot(x~group) ще направи boxplot за всяка група
+# boxplot(x~group)
 
 x=c(10,7,5,5,12,3)
 barplot(table(x))
 
 # tidyverse -> group_by(df,gr)
 
-# категорни данни - дискретни категории
-# числови данни -> hist, boxplot(спрямо друга пром.) 
+# hist, boxplot 
 
-#Линейна регресия
-# коеф. на наклона b1^=0.95 ~ N(b1,sigma^2)
-# за x=1 съответства y=0.95
+# b1^=0.95 ~ N(b1,sigma^2)
+# x=1, y=0.95
 
 # Ho: b1 = 0.79
 # t = (b1^ - b1?)/sd(b1^) ~ T(n-2)
-# pt(t,df,lower.tail=F) -> за положителни
-# pt(t,df,lower,tail=T) -> за отрицателни
+# pt(t,df,lower.tail=F)
+# pt(t,df,lower,tail=T)
 
-# за теоретичните квантили -> qnorm
-# за емпиричните квантили  -> на базата на данните -> quantile(x)
+# qnorm, quantile(x)
 
 
