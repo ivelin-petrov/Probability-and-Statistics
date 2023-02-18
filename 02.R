@@ -12,13 +12,13 @@ mean(x == "A")
 
 sum(survey$Sex == "Male", na.rm = TRUE)
 
-# полове на студенти
+# ГЇГ®Г«Г®ГўГҐ Г­Г  Г±ГІГіГ¤ГҐГ­ГІГЁ
 table(survey$Sex)
 prop.table(table(survey$Sex))
 
 table(survey$Sex, survey$Smoke)
 prop.table(table(survey$Sex, survey$Smoke))
-# условна вероятност по първа променлива
+# ГіГ±Г«Г®ГўГ­Г  ГўГҐГ°Г®ГїГІГ­Г®Г±ГІ ГЇГ® ГЇГєГ°ГўГ  ГЇГ°Г®Г¬ГҐГ­Г«ГЁГўГ 
 prop.table(table(survey$Sex, survey$Smoke), 1) # 9/118
 prop.table(table(survey$Sex, survey$Smoke), 2) # 89/(89+99)
 
@@ -26,9 +26,9 @@ barplot(table(survey$Smoke))
 barplot(table(survey$Sex, survey$Smoke), legend = T, beside = T)
 
 barplot(prop.table(table(survey$Sex, survey$Smoke)), legend = T, beside = T)
-# условна вероятност по пол (1)
+# ГіГ±Г«Г®ГўГ­Г  ГўГҐГ°Г®ГїГІГ­Г®Г±ГІ ГЇГ® ГЇГ®Г« (1)
 barplot(prop.table(table(survey$Sex, survey$Smoke), 1), legend = T, beside = T)
-# условна вероятност по пол (2)
+# ГіГ±Г«Г®ГўГ­Г  ГўГҐГ°Г®ГїГІГ­Г®Г±ГІ ГЇГ® ГЇГ®Г« (2)
 barplot(prop.table(table(survey$Smoke, survey$Sex), 2), legend = T, beside = T)
 
 pie(table(survey$Smoke))
@@ -42,8 +42,8 @@ sum(table(survey$Smoke, survey$Sex)[-2,2])
 # survey[, "Height"] == survey$Height
 mean(survey$Height[survey$Sex == "Male"], na.rm = TRUE)
 survey[order(survey$Age)[1:6], c("Height", "Sex")]
-# sort(survey$Age)[1:6] -> стойности
-# order(survey$Age)[1:6] -> индекси
+# sort(survey$Age)[1:6] -> Г±ГІГ®Г©Г­Г®Г±ГІГЁ
+# order(survey$Age)[1:6] -> ГЁГ­Г¤ГҐГЄГ±ГЁ
 
 # task2
 sum(survey$Smoke == "Regul", na.rm = TRUE)
@@ -54,7 +54,7 @@ prop.table(table(survey$Smoke))[4]
 prop.table(table(survey$Smoke, survey$Sex))["Regul","Male"]
 prop.table(table(survey$Smoke, survey$Sex))[4,2]
 
-# маргинализиране по пол
+# Г¬Г Г°ГЈГЁГ­Г Г«ГЁГ§ГЁГ°Г Г­ГҐ ГЇГ® ГЇГ®Г«
 prop.table(table(survey$Smoke, survey$Sex), 2)[4,2]
 # 12/118
 prop.table(table(survey$Smoke, survey$Sex), 1)[4,2]
