@@ -8,7 +8,7 @@
 # function
 
 # filter, map
-# Вектори
+# Г‚ГҐГЄГІГ®Г°ГЁ
 # c -> combine
 
 x = c(1,2,3,4,5) # ctrl + enter
@@ -27,22 +27,22 @@ z[-3]
 z[c(1,3,8)]
 z[-c(1,3,8)]
 
-#булеви маски
+#ГЎГіГ«ГҐГўГЁ Г¬Г Г±ГЄГЁ
 bools = z > 4
 z[bools] # filter
 
 bools = z %% 2 == 0
 z[bools] # filter even num
 
-# индексите започват от 1, а не от 0
-# редици
+# ГЁГ­Г¤ГҐГЄГ±ГЁГІГҐ Г§Г ГЇГ®Г·ГўГ ГІ Г®ГІ 1, Г  Г­ГҐ Г®ГІ 0
+# Г°ГҐГ¤ГЁГ¶ГЁ
 s = 1:100
 # ?seq
 s2 = seq(from = 1, to = 100, by = 1)
 #s2 = seq(1,100,1)
 s3 = seq(from = 1, to = 100, length.out = 300)
 
-# задача от контролно
+# Г§Г Г¤Г Г·Г  Г®ГІ ГЄГ®Г­ГІГ°Г®Г«Г­Г®
 n = 100
 x = 3.4
 # sum of x^i, for i -> 1-n
@@ -50,7 +50,7 @@ sum(x^(1:n))
 
 f = function(n,x){sum(x^(1:n))}
 
-# info за променливите
+# info Г§Г  ГЇГ°Г®Г¬ГҐГ­Г«ГЁГўГЁГІГҐ
 str("Nikola")
 typeof("Nikola")
 length("Nikola") # 1 -> vector
@@ -67,7 +67,7 @@ View(m)
 m[2,3]
 m[-2, c(1,3)]
 
-# сортиране и наредба
+# Г±Г®Г°ГІГЁГ°Г Г­ГҐ ГЁ Г­Г Г°ГҐГ¤ГЎГ 
 v = c(6,7,3,2,1,5,7,9,4)
 sort(v)
 v[order(v)]
@@ -79,7 +79,7 @@ m = matrix(v, nrow=3, ncol=3, byrow = TRUE)
 index_first_col_sorted = order(m[,1])
 m[index_first_col_sorted, ]
 
-# именуване на матрица
+# ГЁГ¬ГҐГ­ГіГўГ Г­ГҐ Г­Г  Г¬Г ГІГ°ГЁГ¶Г 
 colnames(m) = c("a","b","c")
 rownames(m) = c("a2","b2","c2")
 
