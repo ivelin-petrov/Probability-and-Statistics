@@ -12,13 +12,12 @@ mean(x == "A")
 
 sum(survey$Sex == "Male", na.rm = TRUE)
 
-# ïîëîâå íà ñòóäåíòè
 table(survey$Sex)
 prop.table(table(survey$Sex))
 
 table(survey$Sex, survey$Smoke)
 prop.table(table(survey$Sex, survey$Smoke))
-# óñëîâíà âåðîÿòíîñò ïî ïúðâà ïðîìåíëèâà
+
 prop.table(table(survey$Sex, survey$Smoke), 1) # 9/118
 prop.table(table(survey$Sex, survey$Smoke), 2) # 89/(89+99)
 
@@ -26,9 +25,9 @@ barplot(table(survey$Smoke))
 barplot(table(survey$Sex, survey$Smoke), legend = T, beside = T)
 
 barplot(prop.table(table(survey$Sex, survey$Smoke)), legend = T, beside = T)
-# óñëîâíà âåðîÿòíîñò ïî ïîë (1)
+
 barplot(prop.table(table(survey$Sex, survey$Smoke), 1), legend = T, beside = T)
-# óñëîâíà âåðîÿòíîñò ïî ïîë (2)
+
 barplot(prop.table(table(survey$Smoke, survey$Sex), 2), legend = T, beside = T)
 
 pie(table(survey$Smoke))
@@ -42,8 +41,8 @@ sum(table(survey$Smoke, survey$Sex)[-2,2])
 # survey[, "Height"] == survey$Height
 mean(survey$Height[survey$Sex == "Male"], na.rm = TRUE)
 survey[order(survey$Age)[1:6], c("Height", "Sex")]
-# sort(survey$Age)[1:6] -> ñòîéíîñòè
-# order(survey$Age)[1:6] -> èíäåêñè
+# sort(survey$Age)[1:6]
+# order(survey$Age)[1:6]
 
 # task2
 sum(survey$Smoke == "Regul", na.rm = TRUE)
@@ -54,7 +53,6 @@ prop.table(table(survey$Smoke))[4]
 prop.table(table(survey$Smoke, survey$Sex))["Regul","Male"]
 prop.table(table(survey$Smoke, survey$Sex))[4,2]
 
-# ìàðãèíàëèçèðàíå ïî ïîë
 prop.table(table(survey$Smoke, survey$Sex), 2)[4,2]
 # 12/118
 prop.table(table(survey$Smoke, survey$Sex), 1)[4,2]
