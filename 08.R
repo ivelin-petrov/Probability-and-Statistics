@@ -2,7 +2,7 @@
 
 # y1,...,yn ~ Exp(lambda)
 # (y/ - E(y))/(sqrt(var(y)/n)) ~ N(0,1), n > 30 
-# централна гранична теорема
+# Г¶ГҐГ­ГІГ°Г Г«Г­Г  ГЈГ°Г Г­ГЁГ·Г­Г  ГІГҐГ®Г°ГҐГ¬Г 
 
 # var(y) = 1/(lambda^2)
 # E(y) = 1/lambda
@@ -14,7 +14,7 @@ f = function(k=100){
 
 hist(replicate(1000,f()), probability=T)
 
-# хипотези
+# ГµГЁГЇГ®ГІГҐГ§ГЁ
 
 #       two.sided     greater     less   
 # Ho := mu? == mu  | mu? <= mu | mu? >= mu 
@@ -36,7 +36,7 @@ g = function(n=10,h=5){
   t = (m-h)/(s/sqrt(n)) # T(n-1)
   
   pvalue=pt(t,n-1)
-  print(2*pvalue) # < alpha -> отхвърляме хипотезата за mu=5
+  print(2*pvalue) # < alpha -> Г®ГІГµГўГєГ°Г«ГїГ¬ГҐ ГµГЁГЇГ®ГІГҐГ§Г ГІГ  Г§Г  mu=5
   
   t.test(x,mu=h,alternative="two.sided")
 }
@@ -44,9 +44,9 @@ g = function(n=10,h=5){
 g(100)
 g(30,3)
 
-# n<30 и x~N(mu,sigma^2) => t.test
-# n>30 и x~not~N(mu,sigma^2) => t.test
-# n<30 и x~not~N(mu,sigma^2) => wilcox.test(x,mu=3,alternative="two.sided")
+# n<30 ГЁ x~N(mu,sigma^2) => t.test
+# n>30 ГЁ x~not~N(mu,sigma^2) => t.test
+# n<30 ГЁ x~not~N(mu,sigma^2) => wilcox.test(x,mu=3,alternative="two.sided")
 
 # task2
 
@@ -60,8 +60,8 @@ t.test(vacation, mu=24, alternative = "less")
 
 # task3
 
-prop.test(42,100,0.5,alternative="less") # alpha > 0.0669 -> не отх.
-prop.test(420,1000,0.5,alternative="less") # поне 50% за p -> "less", за да се опитаме да отх. хипотезата
+prop.test(42,100,0.5,alternative="less") # alpha > 0.0669 -> Г­ГҐ Г®ГІГµ.
+prop.test(420,1000,0.5,alternative="less") # ГЇГ®Г­ГҐ 50% Г§Г  p -> "less", Г§Г  Г¤Г  Г±ГҐ Г®ГЇГЁГІГ Г¬ГҐ Г¤Г  Г®ГІГµ. ГµГЁГЇГ®ГІГҐГ§Г ГІГ 
 
 # task4
 
@@ -78,7 +78,7 @@ qqline(x)
 
 shapiro.test(x) 
 # pvalue = 0.05 => 0.51 !< pvalue
-wilcox.test(x,mu=5,alternative="greater") # не отхв. хипотезата
+wilcox.test(x,mu=5,alternative="greater") # Г­ГҐ Г®ГІГµГў. ГµГЁГЇГ®ГІГҐГ§Г ГІГ 
 
 # task5
 
@@ -91,8 +91,8 @@ x=cancer$stomach
 hist(x)
 
 # not norm, n<30
-wilcox.test(x,mu=100,alternative="less") #Ho -> живеят повече от 100 дни, alt. -> "less"
-wilcox.test(x,mu=100,alternative="greater") #Ho -> живеят по-малко от 100 дни, alt. -> "greater"
+wilcox.test(x,mu=100,alternative="less") #Ho -> Г¦ГЁГўГҐГїГІ ГЇГ®ГўГҐГ·ГҐ Г®ГІ 100 Г¤Г­ГЁ, alt. -> "less"
+wilcox.test(x,mu=100,alternative="greater") #Ho -> Г¦ГЁГўГҐГїГІ ГЇГ®-Г¬Г Г«ГЄГ® Г®ГІ 100 Г¤Г­ГЁ, alt. -> "greater"
 
 # task6
 
@@ -108,6 +108,6 @@ x=sum(male_smoking != "Never", na.rm = T)
 
 # n>30
 prop.test(28,118,p=0.2,alternative="greater")
-# Ho := p<=0,2 (пушачи), Ha := p>0.2
+# Ho := p<=0,2 (ГЇГіГёГ Г·ГЁ), Ha := p>0.2
 
 
