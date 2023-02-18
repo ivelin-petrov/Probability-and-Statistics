@@ -60,7 +60,6 @@ prop.table(table(mtcars$cyl,mtcars$gear),2)[3,3]
 
 #task3
 
-#íåòî÷íî ðåøåíèå
 f = function(){
   for (n in 20:150) {
     x=table(sample(1:20,size=n,replace=TRUE))
